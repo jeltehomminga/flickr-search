@@ -1,20 +1,21 @@
 import React from "react";
-import "./PhotoCard.css";
+import { photoCard, picture } from "./PhotoCard.module.css";
 
 const PhotoCard = props => {
-  let photo = props.photo;
   return (
     <>
       {photo && (
-        <div className="photo-card">
-          <picture className="picture">
-            <source media="(min-width: 650px)" srcSet={`${photo.src}_b.jpg`} />
-            <source media="(min-width: 465px)" srcSet={`${photo.src}_z.jpg`} />
-            <img
-              src={`${photo.src}_n.jpg`}
-              alt="flickr-pic"
-              //   style={{ width: "auto" }}
+        <div className={photoCard}>
+          <picture className={picture}>
+            <source
+              media='(min-width: 850px)'
+              srcSet={`${props.photo.src}_b.jpg`}
             />
+            <source
+              media='(min-width: 465px)'
+              srcSet={`${props.photo.src}_z.jpg`}
+            />
+            <img src={`${props.photo.src}_n.jpg`} alt='flickr-pic' />
           </picture>
         </div>
       )}

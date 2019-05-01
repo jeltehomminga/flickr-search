@@ -4,11 +4,13 @@ import axios from "axios";
 import Gallery from "./components/Gallery";
 
 class App extends Component {
-  state = { photoSearchResult: [] };
+  state = { photoSearchResult: [], searchInput: "Amsterdam" };
   componentDidMount() {
     axios({
       method: "get",
-      url: process.env.REACT_APP_DEV_API_URL
+      url: `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${
+        process.env.REACT_APP_API_KEY
+      }&tags=${this.state.searchInput}&format=json&nojsoncallback=1`
     }).then(response => {
       console.log(response.data);
       let photoDetails = response.data.photos.photo.map(photo => ({
@@ -22,9 +24,12 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Flickr search</h1>
+      <div className='App'>
+        <header className='App-header'>
+          <div>
+            <h1>Flickr search</h1>
+            <input className='searchBox' />
+          </div>
           <Gallery photos={this.state.photoSearchResult} />
         </header>
       </div>

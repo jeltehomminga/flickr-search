@@ -1,0 +1,12 @@
+.photoCard {
+  width: 23%;
+  margin: 10px;
+  min-width: 350px;
+  background: whitesmoke;
+  padding: 10px;
+}
+
+.picture > img,
+source {
+  width: 100%;
+}
