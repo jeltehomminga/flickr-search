@@ -4,9 +4,34 @@
   min-width: 350px;
   background: whitesmoke;
   padding: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+  border: 0.2px solid rgba(40, 44, 52, 0.1)
 }
 
-.picture > img,
-source {
+.picture {
   width: 100%;
+  position: relative;
+}
+
+span {
+  width: 100%;
+  position: relative;
+}
+
+.image-container {
+  width: 100%;
+
+}
+
+
+.photoCard:hover,
+.photoCard:focus,
+.photoCard:active {
+  box-shadow: 5px 20px 20px -20px rgba(0, 0, 24, 0.5);
+  transform: scale(1.015);
 }
