@@ -9,11 +9,14 @@ class Gallery extends Component {
         {this.props.photos.length > 0 &&
           this.props.photos.map((photo, index) => {
             return (
+
+              
               
               <PhotoCard
                 index={index}
                 photo={photo}
                 key={`card-photo-${index}`}
+                renderPhotoCard={this.props.renderGallery}
               />
 
             );

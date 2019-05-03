@@ -31,11 +31,11 @@ class PhotoCard extends Component {
                     srcSet={`${this.props.photo.src}_z.jpg`}
                   />
                   <img src={`${this.props.photo.src}_n.jpg`} alt='flickr-pic' />
+                  <div>
+                    <p>{this.props.photo.title}</p>
+                  </div>
                 </picture>
               </LazyLoadComponent>
-              <div>
-                <p>{this.props.photo.title}</p>
-              </div>
             </div>
           </div>
         )}

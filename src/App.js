@@ -4,13 +4,19 @@ import axios from "axios";
 import { debounce } from "lodash";
 import Gallery from "./components/Gallery";
 import SearchBar from "./components/SearchBar";
+import store from './store'
 
 class App extends Component {
-  state = { photoSearchResult: [], searchInput: "Amsterdam" };
+  state = {
+    photoSearchResult: [],
+    searchInput: "Amsterdam",
+    renderGallery: false
+  };
   handleChange = debounce(inputValue => {
-    this.setState({ searchInput: inputValue });
-    this.loadPhotos();
+    this.setState({ renderGallery: false });
+    this.setState({ searchInput: inputValue }, () => this.loadPhotos());
   }, 500);
+
   componentDidMount = () => this.loadPhotos();
   loadPhotos = () => {
     // TODO: add parameters to url variables
@@ -34,6 +40,7 @@ class App extends Component {
           }_${photo.secret}`
         }));
         this.setState({ photoSearchResult: photoDetails });
+        this.setState({ renderGallery: true });
       })
       // TODO: proper error handling
       .catch(err => console.log(err));
@@ -44,11 +51,17 @@ class App extends Component {
       <div className='App'>
         <header className='App-header'>
           <div>
+            
+            <SearchBar store={store} onSearch={this.handleChange} />
             <h1>Flickr search</h1>
-            <SearchBar onSearch={this.handleChange} />
           </div>
-          <Gallery photos={this.state.photoSearchResult} />
         </header>
+
+        {this.state.renderGallery &&
+        <Gallery
+          photos={this.state.photoSearchResult}
+          renderGallery={this.state.renderGallery}
+        /> }
       </div>
     );
   }
