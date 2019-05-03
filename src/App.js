@@ -13,6 +13,7 @@ class App extends Component {
   }, 500);
   componentDidMount = () => this.loadPhotos();
   loadPhotos = () => {
+    // TODO: add parameters to url variables
     axios({
       method: "get",
       url: `${process.env.REACT_APP_API_URL}?method=${
@@ -34,6 +35,7 @@ class App extends Component {
         }));
         this.setState({ photoSearchResult: photoDetails });
       })
+      // TODO: proper error handling
       .catch(err => console.log(err));
   };
   componentWillUnmount = () => this.handleChange.cancel();
@@ -43,7 +45,7 @@ class App extends Component {
         <header className='App-header'>
           <div>
             <h1>Flickr search</h1>
-            <SearchBar onSearch={this.handleChange}/>
+            <SearchBar onSearch={this.handleChange} />
           </div>
           <Gallery photos={this.state.photoSearchResult} />
         </header>

@@ -15,17 +15,19 @@
 
 .picture {
   width: 100%;
-  position: relative;
+  position: relative
+
 }
 
-span {
+span, img {  
   width: 100%;
   position: relative;
 }
 
 .image-container {
+  padding-top: 100%;
   width: 100%;
-
+  position: relative;
 }
 
 

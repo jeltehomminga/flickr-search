@@ -1,16 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
 import PhotoCard from "./PhotoCard";
-import { photoGallery } from  "./Gallery.module.css";
+import { photoGallery } from "./Gallery.module.css";
 
-const Gallery = props => {
-  return (
-    <div className={photoGallery}>
-      {props.photos.length > 0 &&
-        props.photos.map(photo => {
-          return <PhotoCard photo={photo} key={`card-photo-${photo.id}`} />;
-        })}
-    </div>
-  );
+class Gallery extends Component {
+  render() {
+    return (
+      <div className={photoGallery}>
+        {this.props.photos.length > 0 &&
+          this.props.photos.map((photo, index) => {
+            return (
+              
+              <PhotoCard
+                index={index}
+                photo={photo}
+                key={`card-photo-${index}`}
+              />
+
+            );
+          })}
+      </div>
+      // TODO: add pagination, make mosaic
+    );
+
+  }
+
 };
 
 export default Gallery;

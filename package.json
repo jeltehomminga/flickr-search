@@ -2,9 +2,11 @@
   "name": "flickr-search",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jeltehomminga.github.io/flickr-search/",
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^7.0.0",
+    "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -13,6 +15,8 @@
     "react-scripts": "3.0.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

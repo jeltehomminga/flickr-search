@@ -1,33 +1,47 @@
-import React from "react";
+import React, { Component } from "react";
 import { photoCard, picture } from "./PhotoCard.module.css";
-// import FallBackPic from './FallBackPic'
-// import LazyLoad from "react-lazy-load";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-// import LazyPic from "./LazyPic";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
-const PhotoCard = props => {
-  return (
-    <>
-      {props.photo && (
-        <div className={photoCard}>
-        <div className="image-container">
-
-          <LazyLoadImage
-            placeholderSrc={`${props.photo.src}_t.jpg`}
-            className={picture}
-            src={`${props.photo.src}_n.jpg`}
-            alt='flickr-pic'
-            effect='blur'
-            threshold='0'
-          />
+class PhotoCard extends Component {
+  state = { isHidden: true };
+  setImageSrc = e => {
+    this.setState({
+      isHidden: false
+    });
+  };
+  render() {
+    return (
+      <>
+        {this.props.photo && (
+          <div
+            className={photoCard}
+            style={{
+              visibility: `${this.state.isHidden ? "hidden" : "visible"}`
+            }}
+          >
+            <div className='image-container'>
+              <LazyLoadComponent threshold={0}>
+                <picture className={picture} onLoad={() => this.setImageSrc()}>
+                  <source
+                    media='(min-width: 1050px)'
+                    srcSet={`${this.props.photo.src}_b.jpg`}
+                  />
+                  <source
+                    media='(min-width: 780px)'
+                    srcSet={`${this.props.photo.src}_z.jpg`}
+                  />
+                  <img src={`${this.props.photo.src}_n.jpg`} alt='flickr-pic' />
+                </picture>
+              </LazyLoadComponent>
+              <div>
+                <p>{this.props.photo.title}</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p>{props.photo.title}</p>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
+        )}
+      </>
+    );
+  }
+}
 
 export default PhotoCard;
