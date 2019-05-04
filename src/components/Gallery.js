@@ -4,19 +4,18 @@ import { photoGallery } from "./Gallery.module.css";
 
 class Gallery extends Component {
   render() {
+    const { photos, renderGallery } = this.props;
     return (
       <div className={photoGallery}>
-        {this.props.photos.length > 0 &&
-          this.props.photos.map((photo, index) => {
-            return (
-
-              
+        {photos.length > 0 &&
+          photos.map((photo, index) => {
+            return (           
               
               <PhotoCard
                 index={index}
                 photo={photo}
                 key={`card-photo-${index}`}
-                renderPhotoCard={this.props.renderGallery}
+                renderPhotoCard={ renderGallery }
               />
 
             );

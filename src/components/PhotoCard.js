@@ -10,6 +10,7 @@ class PhotoCard extends Component {
     });
   };
   render() {
+    const { src, title, index } = this.props.photo;
     return (
       <>
         {this.props.photo && (
@@ -19,24 +20,24 @@ class PhotoCard extends Component {
               visibility: `${this.state.isHidden ? "hidden" : "visible"}`
             }}
           >
-            <div className='image-container'>
-              <LazyLoadComponent threshold={0}>
+            <LazyLoadComponent threshold={index < 7 ? 500 : 300}>
+              <div className='image-container'>
                 <picture className={picture} onLoad={() => this.setImageSrc()}>
                   <source
                     media='(min-width: 1050px)'
-                    srcSet={`${this.props.photo.src}_b.jpg`}
+                    srcSet={`${src}_b.jpg`}
                   />
                   <source
                     media='(min-width: 780px)'
-                    srcSet={`${this.props.photo.src}_z.jpg`}
+                    srcSet={`${src}_z.jpg`}
                   />
-                  <img src={`${this.props.photo.src}_n.jpg`} alt='flickr-pic' />
+                  <img src={`${src}_n.jpg`} alt='flickr-pic' />
                   <div>
-                    <p>{this.props.photo.title}</p>
+                    <p>{title}</p>
                   </div>
                 </picture>
-              </LazyLoadComponent>
-            </div>
+              </div>
+            </LazyLoadComponent>
           </div>
         )}
       </>
