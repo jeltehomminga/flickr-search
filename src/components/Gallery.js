@@ -1,31 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 import PhotoCard from "./PhotoCard";
 import { photoGallery } from "./Gallery.module.css";
+import { connect } from "react-redux";
 
-class Gallery extends Component {
-  render() {
-    const { photos, renderGallery } = this.props;
+const Gallery = props => {
+    debugger;
     return (
       <div className={photoGallery}>
-        {photos.length > 0 &&
-          photos.map((photo, index) => {
-            return (           
-              
-              <PhotoCard
-                index={index}
-                photo={photo}
-                key={`card-photo-${index}`}
-                renderPhotoCard={ renderGallery }
-              />
-
-            );
-          })}
+        {props.photos &&
+          props.photos.map((photo, index) => (
+            <PhotoCard
+              index={index}
+              photo={photo}
+              key={`card-photo-${index}`}
+            />
+          ))}
       </div>
       // TODO: add pagination, make mosaic
     );
-
   }
 
-};
+const mapStateToProps = state => ({ photos: state.photos.photo });
 
-export default Gallery;
+export default connect(mapStateToProps)(Gallery);
