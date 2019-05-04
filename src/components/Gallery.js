@@ -4,22 +4,21 @@ import { photoGallery } from "./Gallery.module.css";
 import { connect } from "react-redux";
 
 const Gallery = props => {
-    debugger;
-    return (
-      <div className={photoGallery}>
-        {props.photos &&
-          props.photos.map((photo, index) => (
-            <PhotoCard
-              index={index}
-              photo={photo}
-              key={`card-photo-${index}`}
-            />
-          ))}
-      </div>
-      // TODO: add pagination, make mosaic
-    );
-  }
+  const { photos, showGallery } = props;
+  return (
+    <div className={photoGallery}>
+      {photos && showGallery &&
+        photos.map((photo, index) => (
+          <PhotoCard index={index} photo={photo} key={`card-photo-${index}`} />
+        ))}
+    </div>
+    // TODO: add pagination
+  );
+};
 
-const mapStateToProps = state => ({ photos: state.photos.photo });
+const mapStateToProps = state => ({
+  photos: state.photos.photo,
+  showGallery: state.showGallery
+});
 
 export default connect(mapStateToProps)(Gallery);

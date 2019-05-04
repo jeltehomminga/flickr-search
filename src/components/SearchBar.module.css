@@ -1,0 +1,15 @@
+.searchBox {
+  border: 0;
+  padding: 7px 15px;
+  border: 1px solid #ccc;
+  position: relative;
+  background: transparent;
+}
+
+
+.searchBox:focus  {
+  transition: 0.5s;
+  opacity: 1;
+    background-color: #ededed;
+}
+

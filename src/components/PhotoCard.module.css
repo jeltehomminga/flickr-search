@@ -1,7 +1,7 @@
 .photoCard {
   width: 23%;
-  margin: 10px;
-  min-width: 350px;
+  margin: 50px 10px;
+  min-width: 300px;
   background: whitesmoke;
   padding: 10px;
   display: inline-block;

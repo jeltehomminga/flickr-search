@@ -9,9 +9,11 @@ class PhotoCard extends Component {
     this.setState({
       isHidden: false
     });
+
+    
   };
   render() {
-    const { title, index, farm, id, server, secret } = this.props.photo;
+    const { title, farm, id, server, secret } = this.props.photo;
     const src = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}`;
     return (
       <>
@@ -22,11 +24,11 @@ class PhotoCard extends Component {
               visibility: `${this.state.isHidden ? "hidden" : "visible"}`
             }}
           >
-            <LazyLoadComponent threshold={index < 7 ? 500 : 300}>
+            <LazyLoadComponent threshold={150}>
               <div className='image-container'>
                 <picture className={picture} onLoad={() => this.setImageSrc()}>
-                  <source media='(min-width: 1050px)' srcSet={`${src}_b.jpg`} />
-                  <source media='(min-width: 780px)' srcSet={`${src}_z.jpg`} />
+                  <source media='(min-width: 1200px)' srcSet={`${src}_b.jpg`} />
+                  <source media='(min-width: 450px)' srcSet={`${src}_z.jpg`} />
                   <img src={`${src}_n.jpg`} alt='flickr-pic' />
                   <div>
                     <p>{title}</p>
@@ -41,8 +43,9 @@ class PhotoCard extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { photos: state.photos.photo };
-};
+const mapStateToProps = state => ({
+  photos: state.photos.photo,
+  showGallery: state.showGallery
+});
 
 export default connect(mapStateToProps)(PhotoCard);
