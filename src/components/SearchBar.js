@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { DebounceInput } from "react-debounce-input";
 import { searchBox } from "./SearchBar.module.css";
 import Api from "../api/api";
+import store from '../store/index'
 
 const SearchBar = props => {
   const ref = useRef();
@@ -10,7 +11,7 @@ const SearchBar = props => {
     if (props.newSearch) {
       ref.current.focus();
     }
-  }, [props.newSearch ]);
+  }, [props.newSearch]);
   return (
     <DebounceInput
       inputRef={ref}
@@ -33,10 +34,7 @@ const mapDispatchToProps = dispatch => {
   return {
     handleInputChange: e => {
       dispatch({ type: "SEARCH", value: e.target.value });
-      Api.loadPhotos(dispatch, e.target.value);
-    },
-    handleFocusDone: () => {
-      dispatch({ type: "FOCUSEARCH", newSearch: false });
+      store.dispatch(Api.loadPhotos(e.target.value));
     }
   };
 };

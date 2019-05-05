@@ -26,11 +26,7 @@ const mapStateToProps = state => ({ searchInput: state.searchInput });
 const mapDispatchToProps = dispatch => {
   return {
     handleNewSearch: () => {
-      dispatch({ type: "FOCUSEARCH", newSearch: true });
-      setTimeout(
-        () => dispatch({ type: "FOCUSEARCH", newSearch: false }),
-        3000
-      );
+      dispatch({ type: "FOCUSSEARCH"});
     }
   };
 };

@@ -1,34 +1,12 @@
-import { createStore } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import reducer from '../reducers/reducer'
 
-const initialState = {
-  photos: [],
-  searchInput: "",
-  showGallery: true,
-  showPages: 1,
-  newSearch: false
-};
-
-const reducer = (state = initialState, action) => {
-  console.log("reducer", action);
-  switch (action.type) {
-    case "SEARCH":
-      return {
-        ...state,
-        searchInput: action.value,
-        showGallery: false
-      };
-    case "PHOTOS":
-      return { ...state, photos: action.photos, showGallery: true };
-    case "FOCUSEARCH":
-      return { ...state, newSearch: action.newSearch };
-    default:
-      return state;
-  }
-};
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancer(applyMiddleware(thunk))
 );
 
 export default store;
