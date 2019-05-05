@@ -3,14 +3,12 @@ import { connect } from "react-redux";
 import { DebounceInput } from "react-debounce-input";
 import { searchBox } from "./SearchBar.module.css";
 import Api from "../api/api";
-import store from '../store/index'
+import store from "../store/index";
 
 const SearchBar = props => {
   const ref = useRef();
   useEffect(() => {
-    if (props.newSearch) {
-      ref.current.focus();
-    }
+    props.newSearch && ref.current.focus();
   }, [props.newSearch]);
   return (
     <DebounceInput
@@ -26,8 +24,8 @@ const SearchBar = props => {
 };
 
 const mapStateToProps = state => ({
-  searchInput: state.searchInput,
-  newSearch: state.newSearch
+  searchInput: state.search.searchInput,
+  newSearch: state.search.newSearch
 });
 
 const mapDispatchToProps = dispatch => {

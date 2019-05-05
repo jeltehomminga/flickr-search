@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { button } from "./Pagination.module.css";
-// import Api from "../api/api";
 
 const Pagination = props => {
   return (
@@ -26,7 +25,10 @@ const mapStateToProps = state => ({ searchInput: state.searchInput });
 const mapDispatchToProps = dispatch => {
   return {
     handleNewSearch: () => {
-      dispatch({ type: "FOCUSSEARCH"});
+      dispatch({ type: "FOCUSSEARCH" });
+    },
+    handleNextPage: () => {
+      dispatch({ type: "NEXTPAGE" });
     }
   };
 };

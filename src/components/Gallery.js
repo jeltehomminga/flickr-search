@@ -25,8 +25,8 @@ const Gallery = props => {
 };
 
 const mapStateToProps = state => ({
-  photos: state.photos.photo,
-  showGallery: state.showGallery
+  photos: state.gallery.photos.photo,
+  showGallery: state.gallery.showGallery
 });
 
 export default connect(mapStateToProps)(Gallery);

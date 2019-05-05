@@ -10,7 +10,8 @@
   box-shadow: 0 0 1px transparent;
   transition-duration: 0.3s;
   transition-property: box-shadow, transform;
-  border: 0.2px solid rgba(40, 44, 52, 0.1)
+  border: 0.2px solid rgba(40, 44, 52, 0.1);
+  visibility: hidden;
 }
 
 .picture {
@@ -23,13 +24,6 @@ span, img {
   width: 100%;
   position: relative;
 }
-
-.image-container {
-  padding-top: 100%;
-  width: 100%;
-  position: relative;
-}
-
 
 .photoCard:hover,
 .photoCard:focus,
