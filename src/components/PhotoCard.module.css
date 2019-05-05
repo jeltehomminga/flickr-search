@@ -17,14 +17,12 @@
 .picture {
   width: 100%;
   position: relative
-
 }
 
 span, img {  
   width: 100%;
   position: relative;
 }
-
 
 @media screen and (min-width: 680px) {
   .photoCard:hover,
