@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import PhotoCard from "./PhotoCard";
 import Pagination from "./Pagination";
 import { photoGallery } from "./Gallery.module.css";
 import { connect } from "react-redux";
 
-const Gallery = props => {
-  const { photos, showGallery } = props;
+const Gallery = ({ photos, showGallery }) => {
+  const myRef = useRef();
+  useEffect(() => {
+    showGallery && 
+    setTimeout(() => {
+      window.scrollTo(0, myRef.current.offsetTop)
+    }, 1000  ) ;
+  }, [showGallery]);
   return (
-    <div className={photoGallery}>
+    <div ref={myRef} className={photoGallery}>
       {photos && showGallery && (
         <>
           {photos.map((photo, index) => (

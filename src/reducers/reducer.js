@@ -3,11 +3,12 @@ import { combineReducers } from "redux";
 const initialState = {
   gallery: {
     photos: [],
-    showGallery: true,
-    showPages: 1
+    showGallery: false,
+    showPage: 1
   },
   search: {
-    newSearch: 1,
+    newSearch: 0,
+    scrollToGallery: 0,
     searchInput: ""
   },
   photoCard: {
@@ -25,6 +26,8 @@ const searchReducer = (state = initialState.search, action) => {
       };
     case "FOCUSSEARCH":
       return { ...state, newSearch: state.newSearch + 1 };
+    case "PHOTOS":
+      return { ...state, scrollToGallery: state.scrollToGallery + 1};
     default:
       return state;
   }
@@ -38,8 +41,18 @@ const galleryReducer = (state = initialState.gallery, action) => {
         ...state,
         showGallery: false
       };
+    case "NAVIGATE":
+      return {
+        ...state,
+        showGallery: false
+      };
     case "PHOTOS":
-      return { ...state, photos: action.photos, showGallery: true };
+      return {
+        ...state,
+        photos: action.photos,
+        showGallery: true,
+        showPage: action.page
+      };
     default:
       return state;
   }
