@@ -4,7 +4,8 @@ const initialState = {
   photos: [],
   searchInput: "",
   showGallery: true,
-  showPages: 1
+  showPages: 1,
+  newSearch: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,6 +19,8 @@ const reducer = (state = initialState, action) => {
       };
     case "PHOTOS":
       return { ...state, photos: action.photos, showGallery: true };
+    case "FOCUSEARCH":
+      return { ...state, newSearch: action.newSearch };
     default:
       return state;
   }
