@@ -4,6 +4,8 @@
 
 .App-header {
   background-color: white;
+  /* background: url('/backgroundjpg.jpg') no-repeat; */
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

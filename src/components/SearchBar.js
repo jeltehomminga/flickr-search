@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import { DebounceInput } from "react-debounce-input";
-import { searchBox } from './SearchBar.module.css';
+import { searchBox } from "./SearchBar.module.css";
 import Api from "../api/api";
 
-const SearchBar = props => (
- 
+const SearchBar = props => {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
+  return (
     <DebounceInput
+      inputRef={ref}
       debounceTimeout={500}
       className={searchBox}
       name='searchInput'
       onChange={props.handleInputChange}
-      placeholder={'Search me...'}
+      placeholder={"Search me..."}
+      
+      autoComplete={"off"}
     />
-);
+  );
+};
 
 const mapStateToProps = state => ({ searchInput: state.searchInput });
 
