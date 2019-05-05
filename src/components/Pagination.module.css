@@ -1,0 +1,15 @@
+.button {
+    border: 0;
+    padding: 7px 15px;
+    margin: 50px 50px 100px 50px;
+    border: 1px solid #ccc;
+    position: relative;
+    background: transparent;
+  }  
+  
+  .button:active  {
+    transition: 0.5s;
+    opacity: 1;
+      background-color: #ededed;
+  }
+  

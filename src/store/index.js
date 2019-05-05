@@ -3,7 +3,8 @@ import { createStore } from "redux";
 const initialState = {
   photos: [],
   searchInput: "",
-  showGallery: true
+  showGallery: true,
+  showPages: 1
 };
 
 const reducer = (state = initialState, action) => {

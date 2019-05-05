@@ -9,8 +9,6 @@ class PhotoCard extends Component {
     this.setState({
       isHidden: false
     });
-
-    
   };
   render() {
     const { title, farm, id, server, secret } = this.props.photo;
