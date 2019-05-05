@@ -3,8 +3,6 @@ import axios from "axios";
 //Thunk
 const loadPhotos = (searchInput, page) => {
   return (dispatch, getState) => {
-    const state = getState();    
-    console.log('hier de state uit de thunk: ', state);
     axios({
       method: "get",
       url: `${process.env.REACT_APP_API_URL}?method=${

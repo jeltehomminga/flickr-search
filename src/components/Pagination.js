@@ -12,7 +12,6 @@ const Pagination = ({
   navigatePage,
   showGallery
 }) => {
-  debugger;
   return (
     <>
       {currentPage > 1 && (

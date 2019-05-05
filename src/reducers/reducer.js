@@ -7,7 +7,7 @@ const initialState = {
     showPage: 1
   },
   search: {
-    newSearch: 0,
+    newSearch: 1,
     scrollToGallery: 0,
     searchInput: ""
   },
@@ -17,7 +17,6 @@ const initialState = {
 };
 
 const searchReducer = (state = initialState.search, action) => {
-  console.log("searchReducer", action);
   switch (action.type) {
     case "SEARCH":
       return {
@@ -34,7 +33,6 @@ const searchReducer = (state = initialState.search, action) => {
 };
 
 const galleryReducer = (state = initialState.gallery, action) => {
-  console.log("galleryReducer", action);
   switch (action.type) {
     case "SEARCH":
       return {
@@ -59,7 +57,6 @@ const galleryReducer = (state = initialState.gallery, action) => {
 };
 
 const photoCardReducer = (state = initialState.photoCard, action) => {
-  console.log("photoCardReducer", action);
   switch (action.type) {
     case "VISIBLE":
       return state.visibleCards.includes(action.index)
