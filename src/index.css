@@ -1,10 +1,3 @@
-
-/* Make sure the width stays the same wehn scollbar comes in after search
-  , so the screens doesn't move */
-html {
-  margin-left: calc(100vw - 100%);
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -13,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e6eaed; 
+  background-color: #e6eaed;
 }
 
 code {
@@ -24,3 +17,11 @@ code {
 .App {
   text-align: center;
 }
+
+/* Make sure the width stays the same when scollbar comes in after search
+  , so the screens doesn't move. Not for mobile */
+  @media screen and (min-width: 680px) {
+    html {
+      margin-left: calc(100vw - 100%);
+    }
+  }

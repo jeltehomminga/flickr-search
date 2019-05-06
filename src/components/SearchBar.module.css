@@ -1,6 +1,5 @@
 .AppHeader {
   background-color: #e6eaed ;
-  /* background-size: auto; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
