@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 const Gallery = ({ photos, showGallery }) => {
   const myRef = useRef();
+  //Scroll to top of Gallery after photos returned
   useEffect(() => {
     showGallery && 
     setTimeout(() => {

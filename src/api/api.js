@@ -1,10 +1,12 @@
 import axios from "axios";
 
-//Thunk
 const loadPhotos = (searchInput, page) => {
-  return (dispatch, getState) => {
+  //Thunk function returns a function
+  return dispatch => {
     axios({
       method: "get",
+      //Search by tag if search input provided, otherwise call recent recommended by Flickr
+      //Safe search and sort by relevance to prevent NSFW pics, warning: NSFW can still show up!
       url: `${process.env.REACT_APP_API_URL}?method=${
         searchInput
           ? process.env.REACT_APP_API_METHOD_SEARCH

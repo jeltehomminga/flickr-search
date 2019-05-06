@@ -5,8 +5,10 @@ import { connect } from "react-redux";
 
 const PhotoCard = props => {
   const { title, farm, id, server, secret } = props.photo;
+  //Check if card can be made visible after image loaded
   const show = props.visibleCards.includes(props.index);
   const src = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}`;
+  //LazyLoadCOmponent to only load needed components 
   return (
     <>
       {props.photo && (
@@ -42,6 +44,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  //Dispatch action to determine which cards can be made visible after image has loaded
   handleVisibleCard: index => dispatch({ type: "VISIBLE", index: index })
 });
 

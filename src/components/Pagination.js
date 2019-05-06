@@ -47,12 +47,14 @@ const Pagination = ({
 
 const mapStateToProps = state => ({
   searchInput: state.search.searchInput,
+  //Convert page number to type number to increment/decrement page
   currentPage: Number(state.gallery.photos.page),
   showGallery: state.gallery.showGallery
 });
 
 const mapDispatchToProps = dispatch => {
   return {
+    //Focus back in the searchbox with new search
     handleNewSearch: () => {
       dispatch({ type: "FOCUSSEARCH" });
     },

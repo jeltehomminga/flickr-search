@@ -24,6 +24,7 @@ span, img {
   position: relative;
 }
 
+/* User experience for effect best if not on mobile */
 @media screen and (min-width: 680px) {
   .photoCard:hover,
   .photoCard:focus,
