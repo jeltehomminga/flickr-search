@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/flickr-search/static/css/main.e5c76088.chunk.css",
-    "main.js": "/flickr-search/static/js/main.161e80b6.chunk.js",
-    "main.js.map": "/flickr-search/static/js/main.161e80b6.chunk.js.map",
+    "main.css": "/flickr-search/static/css/main.f58a76fe.chunk.css",
+    "main.js": "/flickr-search/static/js/main.9eba6745.chunk.js",
+    "main.js.map": "/flickr-search/static/js/main.9eba6745.chunk.js.map",
     "runtime~main.js": "/flickr-search/static/js/runtime~main.2ac78120.js",
     "runtime~main.js.map": "/flickr-search/static/js/runtime~main.2ac78120.js.map",
-    "static/js/2.99c95082.chunk.js": "/flickr-search/static/js/2.99c95082.chunk.js",
-    "static/js/2.99c95082.chunk.js.map": "/flickr-search/static/js/2.99c95082.chunk.js.map",
+    "static/js/2.2d68f48c.chunk.js": "/flickr-search/static/js/2.2d68f48c.chunk.js",
+    "static/js/2.2d68f48c.chunk.js.map": "/flickr-search/static/js/2.2d68f48c.chunk.js.map",
     "index.html": "/flickr-search/index.html",
-    "precache-manifest.334b4dfc42b07c5156c7a24f213f55e5.js": "/flickr-search/precache-manifest.334b4dfc42b07c5156c7a24f213f55e5.js",
+    "precache-manifest.e09512f3e8711973b72268cfe21f6a63.js": "/flickr-search/precache-manifest.e09512f3e8711973b72268cfe21f6a63.js",
     "service-worker.js": "/flickr-search/service-worker.js",
-    "static/css/main.e5c76088.chunk.css.map": "/flickr-search/static/css/main.e5c76088.chunk.css.map",
-    "static/media/App.css": "/flickr-search/static/media/FolBg.c1f6c26e.png"
+    "static/css/main.f58a76fe.chunk.css.map": "/flickr-search/static/css/main.f58a76fe.chunk.css.map"
   }
 }
