@@ -13,7 +13,7 @@ const loadPhotos = (searchInput, page) => {
           : process.env.REACT_APP_API_METHOD_RECENT
       }&api_key=${
         process.env.REACT_APP_API_KEY
-      }&tags=${searchInput}&sort=relevance&safe_search=1&format=json&nojsoncallback=1&page=${page}`
+      }&tags=${searchInput}&page=${page}&sort=relevance&safe_search=1&format=json&nojsoncallback=1`
     }).then(response => {
       dispatch({ type: "PHOTOS", photos: response.data.photos, page: page });
     });
