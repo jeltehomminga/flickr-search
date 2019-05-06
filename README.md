@@ -2,7 +2,11 @@
 
 ![Image of Flickr search](https://jelte.tech/img/portfolio/homepage.PNG)
 
-Flickr search is a minimalistic flickr search app that let you search pictures by tag on Flickr provided by the flickr API. 
+Flickr search is a minimalistic flickr search app that let you search pictures by tag on Flickr. Photo infor and location are provided by the flickr API. 
+
+The app is published on GitHub pages
+
+[Flickr search app](https://jeltehomminga.github.io/flickr-search/ "Flickr search")
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
