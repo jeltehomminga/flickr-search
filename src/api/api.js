@@ -1,4 +1,6 @@
 import axios from "axios";
+import actionCreator from "../actions/actions";
+
 const {
   REACT_APP_API_METHOD_SEARCH: search,
   REACT_APP_API_METHOD_RECENT: recent,
@@ -23,7 +25,7 @@ const loadPhotos = (searchInput, page) => {
         }
       })
       .then(response => {
-        dispatch({ type: "PHOTOS", photos: response.data.photos, page: page });
+        dispatch(actionCreator.photos(response.data.photos, page));
       })
       .catch(err => console.log(err));
   };

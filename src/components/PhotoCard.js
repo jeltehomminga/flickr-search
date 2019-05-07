@@ -2,6 +2,8 @@ import React from "react";
 import { photoCard, picture } from "./PhotoCard.module.css";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 import { connect } from "react-redux";
+import actionCreator  from '../actions/actions'
+
 
 const PhotoCard = props => {
   const { title, farm, id, server, secret } = props.photo;
@@ -37,15 +39,15 @@ const PhotoCard = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  photos: state.gallery.photos.photo,
-  showGallery: state.gallery.showGallery,
-  visibleCards: state.photoCard.visibleCards
+const mapStateToProps = ({ gallery, photoCard }) => ({
+  photos: gallery.photos.photo,
+  showGallery: gallery.showGallery,
+  visibleCards: photoCard.visibleCards
 });
 
 const mapDispatchToProps = dispatch => ({
   //Dispatch action to determine which cards can be made visible after image has loaded
-  handleVisibleCard: index => dispatch({ type: "VISIBLE", index: index })
+  handleVisibleCard: index => dispatch(actionCreator.visible(index))
 });
 
 export default connect(

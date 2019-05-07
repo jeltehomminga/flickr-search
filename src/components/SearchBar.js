@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import { DebounceInput } from "react-debounce-input";
-import { AppHeader, searchBox, SearchBoxContainer  } from "./SearchBar.module.css";
+import { AppHeader, searchBox, SearchContainer  } from "./SearchBar.module.css";
 import Api from "../api/api";
 import store from "../store/index";
+import actionCreator  from '../actions/actions'
 
 const SearchBar = ({newSearch, handleInputChange, })=> {
   const ref = useRef();
@@ -14,7 +15,7 @@ const SearchBar = ({newSearch, handleInputChange, })=> {
   //Debounce component to only search after typing finished
   return (
     <header className={AppHeader}>
-      <div className={SearchBoxContainer}>
+      <div className={SearchContainer}>
         <DebounceInput
           inputRef={ref}
           debounceTimeout={500}
@@ -30,15 +31,15 @@ const SearchBar = ({newSearch, handleInputChange, })=> {
   );
 };
 
-const mapStateToProps = state => ({
-  searchInput: state.search.searchInput,
-  newSearch: state.search.newSearch
+const mapStateToProps = ({ search })=> ({
+  searchInput: search.searchInput,
+  newSearch: search.newSearch
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     handleInputChange: e => {
-      dispatch({ type: "SEARCH", value: e.target.value });
+      dispatch(actionCreator.search(e));
       //Thunk-Redux use for asynch call to API
       store.dispatch(Api.loadPhotos(e.target.value));
     }

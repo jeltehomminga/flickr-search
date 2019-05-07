@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { button } from "./Pagination.module.css";
 import store from "../store/index";
 import Api from "../api/api";
+import actionCreator  from '../actions/actions'
 
 const Pagination = ({
   searchInput,
@@ -45,21 +46,21 @@ const Pagination = ({
   );
 };
 
-const mapStateToProps = state => ({
-  searchInput: state.search.searchInput,
+const mapStateToProps = ({ search, gallery }) => ({
+  searchInput: search.searchInput,
   //Convert page number to type number to increment/decrement page
-  currentPage: Number(state.gallery.photos.page),
-  showGallery: state.gallery.showGallery
+  currentPage: Number(gallery.photos.page),
+  showGallery: gallery.showGallery
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     //Focus back in the searchbox with new search
     handleNewSearch: () => {
-      dispatch({ type: "FOCUSSEARCH" });
+      dispatch(actionCreator.focus());
     },
     navigatePage: pageNumber => {
-      dispatch({ type: "NAVIGATE" });
+      dispatch(actionCreator.navigate());
       store.dispatch(Api.loadPhotos(null, pageNumber + ""));
     }
   };
