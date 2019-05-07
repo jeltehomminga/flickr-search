@@ -1,13 +1,13 @@
 const initialPhotoCardState = { visibleCards: [] };
 
-const photoCardReducer = (state = initialPhotoCardState, action) => {
-  switch (action.type) {
+const photoCardReducer = (state = initialPhotoCardState, { type, index }) => {
+  switch (type) {
     case "VISIBLE":
-      return state.visibleCards.includes(action.index)
+      return state.visibleCards.includes(index)
         ? state
         : {
             ...state,
-            visibleCards: [...state.visibleCards, action.index]
+            visibleCards: [...state.visibleCards, index]
           };
     case "SEARCH":
       return { visibleCards: [] };
